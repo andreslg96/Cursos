@@ -1,0 +1,48 @@
+package alg;
+
+public class Funciones {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//sumar(4,5);
+		saludar("Sik", 80);
+		int resta = restar(8,6);
+		System.out.println(resta);
+		System.out.println(sumar(5.5,6));
+		cuentaRegresiva(4);
+
+	}
+	
+//	static void sumar(int a, int b) {
+//		int suma = a + b;
+//		System.out.println("La suma es "+ suma);
+//	}
+	
+	static int sumar(int a, int b) {
+		return a + b;
+	}
+	
+	static double sumar(double a, double b) {
+		return a+b;
+	}
+	
+	static int restar(int a, int b) {
+		return a-b;
+	}
+	
+	static void saludar(String nombre, int edad) {
+		System.out.printf("Hola %s, tu edad es %d \n", nombre, edad);
+	}
+	
+	//Función recursiva
+	static void cuentaRegresiva(int numero) {
+		numero--;
+		if(numero>0) {
+			System.out.println(numero);
+			cuentaRegresiva(numero);
+		}else {
+			System.out.println("Llego a 0");
+		}
+	}
+
+}

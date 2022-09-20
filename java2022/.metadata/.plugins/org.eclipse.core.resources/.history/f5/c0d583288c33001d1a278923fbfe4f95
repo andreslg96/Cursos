@@ -1,0 +1,27 @@
+package alg;
+
+public class Funciones {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		sumar(4,5);
+		saludar("Sik", 80);
+		int resta = restar(8,6);
+		System.out.println(resta);
+
+	}
+	
+	static void sumar(int a, int b) {
+		int suma = a + b;
+		System.out.println("La suma es "+ suma);
+	}
+	
+	static int restar(int a, int b) {
+		return a-b;
+	}
+	
+	static void saludar(String nombre, int edad) {
+		System.out.printf("Hola %s, tu edad es %d \n", nombre, edad);
+	}
+
+}
