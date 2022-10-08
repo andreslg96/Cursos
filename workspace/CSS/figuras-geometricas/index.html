@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figuras geométricas</title>
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="header">
+        <h1 class="header-title">Figuras geométricas</h1>
+        <p class="header-description">
+            Calcular diferentes medidas de figuras geométricas como área y perímetro.
+        </p>
+    </header>
+    
+    <!-- Respuesta -->
+    <div class="answer">
+        <p>El área del cuadrado es: 45cm</p>
+    </div>
+
+    <!-- Seccion de cajas -->
+    <section class="figures">
+        <div class="box">
+            <div class="box-header">
+                <h2>Cuadrado</h2>
+            </div>
+            <div class="box-main">
+                <p class="box-main__text">¿Cuánto mide cada lado de tu cuadrado?</p>
+                <input 
+                    class="box-main__input" 
+                    type="number" 
+                    name="side" 
+                    id="side"
+                    placeholder="Ingrese los lados">
+                <button class="box-main__btn" type="button">Perimetro</button>
+                <button class="box-main__btn" type="button">Área</button>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-header">
+                <h2>Triángulo</h2>
+            </div>
+            <div class="box-main">
+                <p class="box-main__text">¿Cuánto mide cada lado de tu triángulo?</p>
+                <input 
+                    class="box-main__input" 
+                    type="number" 
+                    name="side" 
+                    id="side"
+                    placeholder="Ingrese lado 1">
+                    <input 
+                    class="box-main__input" 
+                    type="number" 
+                    name="side" 
+                    id="side"
+                    placeholder="Ingrese lado 2">
+                    <input 
+                    class="box-main__input" 
+                    type="number" 
+                    name="side" 
+                    id="side"
+                    placeholder="Ingrese lado 3">
+                <button class="box-main__btn" type="button">Perimetro</button>
+                <p class="box-main__text">¿Cuánto mide la base y altura de tu triángulo?</p>
+                <input 
+                class="box-main__input" 
+                type="number" 
+                name="side" 
+                id="side"
+                placeholder="Ingrese base">
+                <input 
+                class="box-main__input" 
+                type="number" 
+                name="side" 
+                id="side"
+                placeholder="Ingrese altura">
+                <button class="box-main__btn" type="button">Área</button>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-header">
+                <h2>Círculo</h2>
+            </div>
+            <div class="box-main">
+                <p class="box-main__text">¿Cuánto mide el radio de tu círculo?</p>
+                <input 
+                class="box-main__input" 
+                type="number" 
+                name="side" 
+                id="side"
+                placeholder="Ingrese radio">
+                <button class="box-main__btn" type="button">Diámetro</button>
+                <button class="box-main__btn" type="button">Perimetro</button>
+                <button class="box-main__btn" type="button">Área</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
