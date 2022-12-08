@@ -20,6 +20,11 @@ public class TiempoTranscurridoInterceptor implements HandlerInterceptor{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		
+		if(request.getMethod().equalsIgnoreCase("post")) {
+			return true; //este if es para que no se aplique en /form pero en post, en get sí
+		}
+		
 		if(handler instanceof HandlerMethod) {
 			HandlerMethod metodo = (HandlerMethod)handler;
 			logger.info("es un método del controlador: " + metodo.getMethod().getName());
@@ -31,14 +36,22 @@ public class TiempoTranscurridoInterceptor implements HandlerInterceptor{
 		request.setAttribute("tiempoInicio", tiempoInicio);
 		
 		Random random = new Random();
-		Integer demora = random.nextInt(500);
+		Integer demora = random.nextInt(100);
 		Thread.sleep(demora);
+		
+		//En caso de retornar un false, debemos redirigir de lo contrario nos cargará una página en blanco
+		//response.sendRedirect(request.getContextPatch().concat("/login")); el login es solo un ejemplo
+		
 		return true;
 	}
 
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
+		
+		if(request.getMethod().equalsIgnoreCase("post")) {
+			return; //este if es para que no se aplique en /form pero en post, en get sí
+		} 
 		
 		long tiempoFin = System.currentTimeMillis();
 		long tiempoInicio = (Long)request.getAttribute("tiempoInicio");
