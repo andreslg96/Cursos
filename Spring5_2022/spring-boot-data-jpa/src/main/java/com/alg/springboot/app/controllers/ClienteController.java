@@ -16,6 +16,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.alg.springboot.app.models.dao.IClienteDao;
 import com.alg.springboot.app.models.entity.Cliente;
+import com.alg.springboot.app.models.service.IClienteService;
 
 import jakarta.validation.Valid;
 
@@ -24,13 +25,14 @@ import jakarta.validation.Valid;
 public class ClienteController {
 	
 	@Autowired
-	@Qualifier("clienteDaoJPA") //En este caso no es necesario porque solo hay una implementación
-	private IClienteDao clienteDao;
+	//@Qualifier("clienteDaoJPA") //En este caso no es necesario porque solo hay una implementación
+	private IClienteService clienteService; //Este cambio se hace por el cambio de @Transaccional de clienteDaoImp a clienteServiceImlp
+	//private IClienteDao clienteDao;
 	
 	@RequestMapping(value="/listar", method=RequestMethod.GET)
 	public String listar(Model model) {
 		model.addAttribute("titulo","Listado de clientes");
-		model.addAttribute("clientes", clienteDao.findAll());
+		model.addAttribute("clientes", clienteService.findAll());//Se cambia clienteDao por clienteService
 		return "listar";
 	}
 	
@@ -48,7 +50,7 @@ public class ClienteController {
 		Cliente cliente=null;
 		
 		if(id>0) {
-			cliente = clienteDao.findOne(id);
+			cliente = clienteService.findOne(id); //Se cambia clienteDao por clienteService
 		}else {
 			return "redirect:/listar";
 		}
@@ -65,7 +67,7 @@ public class ClienteController {
 		}
 		
 		
-		clienteDao.save(cliente);
+		clienteService.save(cliente); //se cambia clienteDao por clienteService
 		status.setComplete(); //para el id con @SessionAttributes
 		return "redirect:listar";
 	}
@@ -74,7 +76,7 @@ public class ClienteController {
 	public String eliminar(@PathVariable(value="id") Long id) {
 		
 		if(id>0) {
-			clienteDao.delete(id);
+			clienteService.delete(id); //se cambia clienteDao por clienteService
 		}
 		return "redirect:/listar";
 	}
